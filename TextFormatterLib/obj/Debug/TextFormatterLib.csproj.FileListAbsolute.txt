@@ -1,0 +1,6 @@
+c:\users\zoom\source\repos\TextFormatterLib\TextFormatterLib\bin\Debug\TextFormatterLib.dll
+c:\users\zoom\source\repos\TextFormatterLib\TextFormatterLib\bin\Debug\TextFormatterLib.pdb
+c:\users\zoom\source\repos\TextFormatterLib\TextFormatterLib\obj\Debug\TextFormatterLib.csprojResolveAssemblyReference.cache
+c:\users\zoom\source\repos\TextFormatterLib\TextFormatterLib\obj\Debug\TextFormatterLib.csproj.CoreCompileInputs.cache
+c:\users\zoom\source\repos\TextFormatterLib\TextFormatterLib\obj\Debug\TextFormatterLib.dll
+c:\users\zoom\source\repos\TextFormatterLib\TextFormatterLib\obj\Debug\TextFormatterLib.pdb
