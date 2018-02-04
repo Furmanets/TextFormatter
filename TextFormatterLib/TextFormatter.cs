@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace TextFormatterLib
 {
@@ -11,24 +8,39 @@ namespace TextFormatterLib
 
         public string Justify(string text, int width)
         {
-            string[] sl = text.Split(' ');
-            StringBuilder resultText = new StringBuilder();
-            StringBuilder currentLine = new StringBuilder();
-            for (int i = 0; i < sl.Length; i++)
+            var words = text.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            var resultText = new StringBuilder();
+            var currentLine = new StringBuilder();
+
+            for (var i = 0; i < words.Length; i++)
             {
+                if (width < words[i].Length)
+                {
+                    throw new Exception("Error! The width can not be shorter than the word.");
+                }
+
                 if (currentLine.Length != 0)
                 {
                     currentLine.Append(' ');
                 }
-                currentLine.Append(sl[i]);
+                currentLine.Append(words[i]);
 
-                if (sl[i + 1].Length + currentLine.Length > width)
+                if (i == words.Length - 1 || words[i + 1].Length + currentLine.Length + 1 > width)
                 {
-                    currentLine.Append(AddingSpaces(currentLine, width));
-                    currentLine.Append('\n');
-                    resultText.Append(currentLine);
+                    if (i != words.Length - 1)
+                    {
+                        resultText.Append(AddingSpaces(currentLine, width));
+                        resultText.Append('\n');
+                    }
+                    else
+                    {
+                        resultText.Append(currentLine);
+                    }
+
                     currentLine.Clear();
                 }
+
+
             }
 
             return resultText.ToString();
@@ -37,17 +49,25 @@ namespace TextFormatterLib
         public string AddingSpaces(StringBuilder currentLine, int width)
         {
             int index = 0;
-            while (currentLine.Length != width)
+            var words = currentLine.ToString().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (words.Length > 1)
             {
-                if (currentLine[index] == ' ')
+
+                while (currentLine.Length != width)
                 {
-                    currentLine.Insert(index, ' ');
+                    if (currentLine[index] == ' ')
+                    {
+                        currentLine.Insert(index, ' ');
+                        index++;
+                    }
+
                     index++;
-                }
-                index++;
-                if (currentLine.Length == index)
-                {
-                    index = 0;
+
+                    if (currentLine.Length == index)
+                    {
+                        index = 0;
+                    }
                 }
             }
 
