@@ -30,6 +30,30 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void OneWordTest()
+        {
+            var tf = new TextFormatter();
+            var text = "Lorem";
+
+            var result = tf.Justify(text, 5);
+            
+            Assert.IsTrue(result == "Lorem");
+            
+        }
+
+        [TestMethod]
+        public void TwoWordTest()
+        {
+            var tf = new TextFormatter();
+            var text = "Lorem sit";
+
+            var result = tf.Justify(text, 5);
+
+            Assert.IsTrue(result == "Lorem\nsit");
+
+        }
+
+        [TestMethod]
         public void TestLengthLines()
         {
             var tf = new TextFormatter();
