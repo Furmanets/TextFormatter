@@ -46,7 +46,7 @@ namespace TextFormatterLib
             return resultText.ToString();
         }
 
-        public string AddingSpaces(StringBuilder currentLine, int width)
+        string AddingSpaces(StringBuilder currentLine, int width)
         {
             int index = 0;
             var words = currentLine.ToString().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
